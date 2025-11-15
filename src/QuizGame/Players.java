@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Players {
     private String name;
-    private int Id = 1;
     private int score = 0;
 
     public int getScore() {
@@ -18,7 +17,6 @@ public class Players {
 
     public Players(String name){
         this.name = name;
-        Id++;
     }
 
     public String getName() {
