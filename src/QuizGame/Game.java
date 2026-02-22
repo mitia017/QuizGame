@@ -22,17 +22,19 @@ public class Game {
             ArrayList<GenerateQuestion.Question> questions = quiz.Generate(QuestionNbr);
 
             if (players.size()>1) {
-                System.out.printf("%s's turn : %n", player.getName());
+                System.out.printf("%n%s's turn : %n", player.getName());
             }
+            int questionCount = 1;
             for (GenerateQuestion.Question question : questions) {
-                System.out.println(question.getQuestion());
+                System.out.printf("%nQuestion %d/%d: %s%n", questionCount++, QuestionNbr, question.getQuestion());
+                System.out.print("> ");
                 String Answer = player.play();
 
                 if (Answer.equalsIgnoreCase(question.getAnswers())) {
-                    System.out.println("Correct answer... Good job");
+                    System.out.println("Correct! Well done.");
                     Score++;
                 } else {
-                    System.out.printf("Bad answer !!! The correct one is : %s%n", question.getAnswers());
+                    System.out.printf("Incorrect. The correct answer was: %s%n", question.getAnswers());
                 }
             }
             player.setScore(Score);
