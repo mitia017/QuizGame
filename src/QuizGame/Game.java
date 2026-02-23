@@ -24,7 +24,9 @@ public class Game {
             if (players.size()>1) {
                 System.out.printf("%s's turn : %n", player.getName());
             }
+            int questionIndex = 1;
             for (GenerateQuestion.Question question : questions) {
+                System.out.printf("%nQuestion %d/%d:%n", questionIndex++, QuestionNbr);
                 System.out.println(question.getQuestion());
                 String Answer = player.play();
 
@@ -41,9 +43,7 @@ public class Game {
         }
         displayResult(players,QuestionNbr);
         System.out.println("\nGame ended ...... \n Press Enter to exit");
-        Scanner scanner = new Scanner(System.in);
-        scanner.nextLine();
-        scanner.close();
+        Players.scanner.nextLine();
     }
 
     public static void displayResult(ArrayList<Players> players, int nbrQuestion){
