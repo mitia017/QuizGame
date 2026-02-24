@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Players {
+    public static final Scanner scanner = new Scanner(System.in);
     private String name;
     private int score = 0;
 
@@ -24,7 +25,6 @@ public class Players {
     }
 
     public String play(){
-        Scanner scanner = new Scanner(System.in);
         String Response = scanner.nextLine();
         return Response;
     }
@@ -33,7 +33,6 @@ public class Players {
 
         boolean isNotValide = true;
         int nbrPlayer = 1;
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("How many player(s) want to play ? (1 - 3): ");
         while(isNotValide){
