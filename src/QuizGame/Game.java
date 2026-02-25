@@ -21,11 +21,14 @@ public class Game {
 
             ArrayList<GenerateQuestion.Question> questions = quiz.Generate(QuestionNbr);
 
+            System.out.println("--------------------------------------------------");
             if (players.size()>1) {
                 System.out.printf("%s's turn : %n", player.getName());
             }
+            int qCount = 1;
             for (GenerateQuestion.Question question : questions) {
-                System.out.println(question.getQuestion());
+                System.out.printf("Question %d/%d: %s%n", qCount++, QuestionNbr, question.getQuestion());
+                System.out.print("> ");
                 String Answer = player.play();
 
                 if (Answer.equalsIgnoreCase(question.getAnswers())) {
@@ -39,11 +42,10 @@ public class Game {
             questions.clear();
             Score = 0;
         }
+        System.out.println("--------------------------------------------------");
         displayResult(players,QuestionNbr);
         System.out.println("\nGame ended ...... \n Press Enter to exit");
-        Scanner scanner = new Scanner(System.in);
-        scanner.nextLine();
-        scanner.close();
+        Players.scanner.nextLine();
     }
 
     public static void displayResult(ArrayList<Players> players, int nbrQuestion){
