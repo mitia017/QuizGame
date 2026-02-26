@@ -31,6 +31,11 @@ public class Players {
 
     public static ArrayList<Players> players(){
 
+        System.out.println("**************************************************");
+        System.out.println("*           WELCOME TO THE QUIZ GAME!            *");
+        System.out.println("*        Test your knowledge of capitals!        *");
+        System.out.println("**************************************************\n");
+
         boolean isNotValide = true;
         int nbrPlayer = 1;
 
@@ -40,50 +45,25 @@ public class Players {
             try {
                 nbrPlayer = Integer.parseInt(scanner.nextLine());
                 if (nbrPlayer > 3 || nbrPlayer < 1) {
-                    System.out.println("Please choose between 1 and 3 !!!");
+                    System.out.println("Please choose a number between 1 and 3.");
                 }else{
                     isNotValide = false;
                 }
             } catch (Exception e) {
-                System.out.println("Please enter a number!!!");
+                System.out.println("Invalid input. Please enter a number.");
             }
         }
         ArrayList<Players> gamePlayers = new ArrayList<>();
 
-        if(nbrPlayer==1){
-            System.out.println("Enter player's name: ");
+        for (int i = 1; i <= nbrPlayer; i++) {
+            if (nbrPlayer == 1) {
+                System.out.println("Enter player's name: ");
+            } else {
+                System.out.printf("Enter player %d's name: %n", i);
+            }
             System.out.print("> ");
             String name = scanner.nextLine();
-            Players player1 = new Players(name);
-            gamePlayers.add(player1);
-        }
-        else if (nbrPlayer==2) {
-            System.out.println("Enter player1's name: ");
-            System.out.print("> ");
-            String name1 = scanner.nextLine();
-            Players player1 = new Players(name1);
-            System.out.println("Enter player2's name: ");
-            System.out.print("> ");
-            String name2 = scanner.nextLine();
-            Players player2 = new Players(name2);
-            gamePlayers.add(player1);
-            gamePlayers.add(player2);
-        } else if (nbrPlayer==3) {
-            System.out.println("Enter player1's name: ");
-            System.out.print("> ");
-            String name1 = scanner.nextLine();
-            Players player1 = new Players(name1);
-            System.out.println("Enter player2's name: ");
-            System.out.print("> ");
-            String name2 = scanner.nextLine();
-            Players player2 = new Players(name2);
-            System.out.println("Enter player3's name: ");
-            System.out.print("> ");
-            String name3 = scanner.nextLine();
-            Players player3 = new Players(name3);
-            gamePlayers.add(player1);
-            gamePlayers.add(player2);
-            gamePlayers.add(player3);
+            gamePlayers.add(new Players(name));
         }
         return gamePlayers;
     }
