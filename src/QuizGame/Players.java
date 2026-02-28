@@ -26,7 +26,7 @@ public class Players {
 
     public String play(){
         String Response = scanner.nextLine();
-        return Response;
+        return Response.trim();
     }
 
     public static ArrayList<Players> players(){
