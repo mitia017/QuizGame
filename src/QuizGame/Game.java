@@ -17,11 +17,20 @@ public class Game {
 
         ArrayList<Players> players = players();
 
+        System.out.println("\n==================================================");
+        System.out.println("          WELCOME TO THE CAPITAL QUIZ             ");
+        System.out.println("==================================================\n");
+
         for(Players player : players){
 
             ArrayList<GenerateQuestion.Question> questions = quiz.Generate(QuestionNbr);
 
-            System.out.println("--------------------------------------------------");
+            if (players.size() > 1) {
+                System.out.printf("%n>>> %s, press Enter to start your turn...", player.getName());
+                Players.scanner.nextLine();
+            }
+
+            System.out.println("\n--------------------------------------------------");
             if (players.size()>1) {
                 System.out.printf("%s's turn : %n", player.getName());
             }
@@ -43,6 +52,9 @@ public class Game {
             Score = 0;
         }
         System.out.println("--------------------------------------------------");
+        System.out.println("\n==================================================");
+        System.out.println("                FINAL STANDINGS                   ");
+        System.out.println("==================================================");
         displayResult(players,QuestionNbr);
         System.out.println("\nGame ended ...... \n Press Enter to exit");
         Players.scanner.nextLine();
@@ -59,9 +71,9 @@ public class Game {
             System.out.printf("%s's score is %d/%d !!%n", players.get(1).getName(), score2,nbrQuestion);
 
             if(score1>score2) {
-                System.out.printf("%s win the game!!%n",players.get(0).getName());
+                System.out.printf("%s wins the game!!%n",players.get(0).getName());
             }else if (score2>score1) {
-                System.out.printf("%s win the game!!%n",players.get(1).getName());
+                System.out.printf("%s wins the game!!%n",players.get(1).getName());
             }else {
                 System.out.println("It's a tie !!!");
             }
@@ -75,18 +87,18 @@ public class Game {
             String name3 = players.get(2).getName();
 
 
-            System.out.printf("%n%s's score is %d !!!%n", name1, score1);
-            System.out.printf("%s's score is %d !!!%n", name2, score2);
-            System.out.printf("%s's score is %d !!!%n%n", name3, score3);
+            System.out.printf("%s's score is %d/%d !!%n", name1, score1, nbrQuestion);
+            System.out.printf("%s's score is %d/%d !!%n", name2, score2, nbrQuestion);
+            System.out.printf("%s's score is %d/%d !!%n", name3, score3, nbrQuestion);
 
             if(score1 > score2 && score1 > score3){
-                System.out.printf("%s is the winner!!!%n",name1);
+                System.out.printf("%s wins the game!!%n",name1);
             } else if (score2 > score1 && score2 > score3) {
-                System.out.printf("%s is the winner!!!%n",name2);
+                System.out.printf("%s wins the game!!%n",name2);
             } else if (score3>score1 && score3>score2){
-                System.out.printf("%s is the winner!!!%n",name3);
+                System.out.printf("%s wins the game!!%n",name3);
             }else{
-                System.out.println("It's a tie!!!");
+                System.out.println("It's a tie !!!");
             }
         }
 
