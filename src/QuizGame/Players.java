@@ -25,11 +25,14 @@ public class Players {
     }
 
     public String play(){
-        String Response = scanner.nextLine();
+        String Response = scanner.nextLine().trim();
         return Response;
     }
 
     public static ArrayList<Players> players(){
+        System.out.println("==================================================");
+        System.out.println("           WELCOME TO THE QUIZ GAME               ");
+        System.out.println("==================================================");
 
         boolean isNotValide = true;
         int nbrPlayer = 1;
