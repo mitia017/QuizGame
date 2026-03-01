@@ -23,7 +23,9 @@ public class Game {
 
             System.out.println("--------------------------------------------------");
             if (players.size()>1) {
-                System.out.printf("%s's turn : %n", player.getName());
+                System.out.printf("%s's turn. Press Enter to start...%n", player.getName());
+                System.out.print("> ");
+                Players.scanner.nextLine();
             }
             int qCount = 1;
             for (GenerateQuestion.Question question : questions) {
@@ -75,9 +77,9 @@ public class Game {
             String name3 = players.get(2).getName();
 
 
-            System.out.printf("%n%s's score is %d !!!%n", name1, score1);
-            System.out.printf("%s's score is %d !!!%n", name2, score2);
-            System.out.printf("%s's score is %d !!!%n%n", name3, score3);
+            System.out.printf("%n%s's score is %d/%d !!%n", name1, score1, nbrQuestion);
+            System.out.printf("%s's score is %d/%d !!%n", name2, score2, nbrQuestion);
+            System.out.printf("%s's score is %d/%d !!%n%n", name3, score3, nbrQuestion);
 
             if(score1 > score2 && score1 > score3){
                 System.out.printf("%s is the winner!!!%n",name1);
